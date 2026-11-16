@@ -1,0 +1,16 @@
+defaults
+auth           on
+tls            on
+tls_starttls   off
+tls_certcheck  on
+logfile        /var/log/msmtp.log
+aliases        /etc/aliases
+set_from_header on
+
+account        default
+host           smtp.yandex.ru
+port           465
+from           <АДРЕС_ЭЛЕКТРОННОЙ_ПОЧТЫ>
+from_full_name "Report sender"
+user           <АДРЕС_ЭЛЕКТРОННОЙ_ПОЧТЫ>
+password       <ПАРОЛЬ_ПРИЛОЖЕНИЯ>

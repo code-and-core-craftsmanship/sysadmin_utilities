@@ -1,0 +1,13 @@
+[Unit]
+Description=Script for MikroTik backup and mail notification
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=<ИМЯ_СИСТЕМНОГО_ПОЛЬЗОВАТЕЛЯ>
+Group=<ГРУППА_СИСТЕМНОГО_ПОЛЬЗОВАТЕЛЯ>
+ExecStart=/ПУТЬ/mikrotik_backup.sh
+
+[Install]
+WantedBy=multi-user.target

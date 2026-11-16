@@ -1,0 +1,3 @@
+#mikrotik_ip;ssh_port;proto_1;port_1;proto_2;port_2;proto_3;port_3
+198.51.100.1;22;TCP;10001;UDP;20002;TCP;30003
+198.51.100.2;22;TCP;11111;UDP;21112;TCP;31113
