@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2026 Alexander <109277805+code-and-core-craftsmanship@users.noreply.github.com>
+# Copyright (C) 2026 Alexander <aan.mailbox@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
