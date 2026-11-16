@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2026 Your Name <aan.mailbox@gmail.com>
+# Copyright (C) 2026 Alexander <109277805+code-and-core-craftsmanship@users.noreply.github.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ CONF_FILE="/etc/mikrotik/mikrotik_dev_list.conf"
 RSC_BKUP_DIR="/var/backups/mikrotik/rsc"
 BINARY_BKUP_DIR="/var/backups/mikrotik/binary"
 BACKUP_USER="backup_user_name"
-EMAIL_TO="amin@example.com"
+EMAIL_TO="admin@example.com"
 KEEP_DAYS=30
 
 # An array for collecting errors as the script runs
@@ -37,8 +37,8 @@ FAILED_ROUTERS=()
 
 # Function for sending an email
 function send_email_report() {
-    local subject=$1
-    local body=$2
+    local subject="$1"
+    local body="$2"
 
     printf "Subject: %s\nTo: %s\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\n\n%s" \
         "$subject" "$EMAIL_TO" "$body" | msmtp "$EMAIL_TO"
@@ -99,7 +99,7 @@ while IFS=';' read -u 3 -r ip ssh_port p1_proto p1_port p2_proto p2_port p3_prot
     if [[ ! -d "$CURRENT_RSC_DIR/.git" ]]; then
         git -C "$CURRENT_RSC_DIR" init >/dev/null
         git -C "$CURRENT_RSC_DIR" config user.name "systemd-backup"
-        git -C "$CURRENT_RSC_DIR" config user.email "backup@$HOSTNAME.local"
+        git -C "$CURRENT_RSC_DIR" config user.email "backup@$(hostname).local"
     fi
 
     BACKUP_RSC="$CURRENT_RSC_DIR/${ip}.rsc"
