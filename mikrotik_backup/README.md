@@ -240,4 +240,4 @@ add action=drop chain=input comment="INPUT Drop everything else"
 add name="auto_make_binary_backup" interval=1d start-time=02:00:00 on-event="/system/backup/save name=binary_backup password=<НАДЁЖНЫЙ_ПАРОЛЬ> encryption=aes-sha256"
 ```
 
-Проект лицензирован под GPL‑3.0. Подробности — в файле `LICENSE`.
+Проект лицензирован под GNU General Public License v3.0. Подробности — в файле `LICENSE`.
