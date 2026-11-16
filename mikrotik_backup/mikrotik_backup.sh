@@ -105,7 +105,7 @@ while IFS=';' read -u 3 -r ip ssh_port p1_proto p1_port p2_proto p2_port p3_prot
     BACKUP_RSC="$CURRENT_RSC_DIR/${ip}.rsc"
 
     # Performing the export. Errors (stderr) are redirected to /dev/null
-    ssh $SSH_OPTS "$BACKUP_USER"@"$ip" "/export compact" > "$BACKUP_RSC" 2>/dev/null
+    ssh "$SSH_OPTS" "$BACKUP_USER"@"$ip" "/export compact" > "$BACKUP_RSC" 2>/dev/null
 
     # Verify that the file was physically created on the server and its size is greater than 0 bytes
     if [ -s "$BACKUP_RSC" ]; then
@@ -130,7 +130,7 @@ while IFS=';' read -u 3 -r ip ssh_port p1_proto p1_port p2_proto p2_port p3_prot
     mkdir -p "$CURRENT_BIN_DIR"
 
     # Download the file to a folder under its original name
-    scp $SSH_OPTS "$BACKUP_USER"@"$ip":binary_backup.backup "$CURRENT_BIN_DIR/" >/dev/null 2>&1
+    scp "$SSH_OPTS" "$BACKUP_USER"@"$ip":binary_backup.backup "$CURRENT_BIN_DIR/" >/dev/null 2>&1
 
     # Verify that the original file has been downloaded successfully and it is not empty
     if [ -s "$CURRENT_BIN_DIR/binary_backup.backup" ]; then
